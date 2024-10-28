@@ -1,0 +1,47 @@
+npm install react-router-dom
+Create the Home, Men, and Women components and use rcfe.
+Set Up the Main Router Configuration :
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import the pages :
+import Men from './Pages/Men.jsx';
+import Women from './Pages/Women.jsx';
+import Home from './Pages/Home.jsx';
+create router to Configuration :
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      { path: "/Home", element: <Home /> },
+      { path: "/Women", element: <Women /> },
+      { path: "/Men", element: <Men /> },
+    ],
+  },
+]);
+change react.dom's inside instructions to :
+<React.StrictMode>
+   <RouterProvider router={router} />
+</React.StrictMode>
+g to app and  import {Outlet } from 'react-router-dom';//it can be {Outlet,Like}
+instead of <section> Gallery and description </section> put <Outlet/>
+
+go to Home component ,create your <section> Gallery and description </section>
+
+Go to nav and import {Link } from 'react-router-dom'; 
+put     <Link to={"home"}>Home</Link> //it doesn't matter {}
+        <Link to="Men">Men</Link>
+        <Link to="Women">Women</Link>
+
+
+you can do : 
+  const navigate = useNavigate(); 
+  <button
+            onClick={() => navigate("Settings")}
+            style={{
+              border: "1px solid #cccc",
+              backgroundColor: "#e9e9e9",
+              padding: " 0 5px",
+            }}
+          >
+            go to settings
+          </button>
